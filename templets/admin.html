@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+</head>
+<body>
+<h2>Add Car</h2>
+<form method="post">
+    <input name="brand" placeholder="Brand" required><br>
+    <input name="model" placeholder="Model" required><br>
+    <input name="year" placeholder="Year"><br>
+    <input name="price" placeholder="Price"><br>
+    <input name="mileage" placeholder="Mileage"><br>
+    <textarea name="description" placeholder="Description"></textarea><br>
+    <button type="submit">Add Car</button>
+</form>
+
+<h2>All Cars</h2>
+<ul>
+    {% for car in cars %}
+<li>
+    {{ car.brand }} {{ car.model }} - {{ car.status }}
+</li>
+{% endfor %}
+</ul>
+</body>
+</html>

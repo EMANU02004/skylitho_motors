@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>
+            Skylitho Motors
+        </title>
+    </head>
+    <body>
+        <header>
+            <h1>Available Cars</h1>
+            <nav>
+            <a href="/">Home</a>
+            {% if session.get('user_id')% }
+            <a href="/logout">Logout</a>
+            {% else %}
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+            {% endif %}
+            <a href="/admin">Admin</a>
+            {% endif %}
+        </nav>
+        </header>
+
+        <section class="search">
+            <form method="get" action="/">
+                <input type="text" name="brand" placeholder="Search by brand">
+            <input type="number" name="min_price" placeholder="Min price">
+            <input type="number" name="max_price" placeholder="Max price">
+            <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <h2>Available Cars</h2>
+
+        <div class="grid">
+            {% for car in cars %}
+            <div class="card">
+                <h3>{{ car.brand }} {{ car.model }}</h3>
+                <p><strong>Year:</strong> {{ car.year }}</p>
+                <p><strong>Price:</strong> ${{ car.price }}</p>
+                <p class="status">Status: {{ car.status }}</p>
+                <a class="btn" href="/car/{{ car.car_id }}">View Details</a>
+            </div>
+            {% else %}
+            <p>No cars available</p>
+            {% endfor %}
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Car Selling Website</p>
+        </footer>
+            
+    </body>
+
+</html>

@@ -1,0 +1,15 @@
+<html>
+<head><title>Car Details</title></head>
+<body>
+<h2>{{ car.brand }} {{ car.model }}</h2>
+<p>Year: {{ car.year }}</p>
+<p>Price: ${{ car.price }}</p>
+<p>{{ car.description }}</p>
+
+
+<form method="post" action="/inquire/{{ car.car_id }}">
+    <textarea name="message" placeholder="Your message" required></textarea><br>
+    <button type="submit">Send Inquiry</button>
+</form>
+</body>
+</html> 
